@@ -1,0 +1,17 @@
+{
+  "Sites": {
+    "Amazon1": {
+      "Keyword": "exports_desktop_qualifiedBuybox_priceInsideBuyBox",
+      "URL": "https://www.amazon.com/PlayStation-5-Console/dp/B08FC5L3RG"
+    },
+    "Amazon2": {
+      "Keyword": "Currently unavailable.",
+      "Reverse search": true,
+      "URL": "https://www.amazon.com/PlayStation-5-Console/dp/B08FC5L3RG"
+    }
+  },
+  "Settings": {
+    "Pushover token": "abcdefghijklmnopqstuvwxyz12345",
+    "Pushover key": "abcdefghijklmnopqstuvwxyz12345"
+  }
+}
