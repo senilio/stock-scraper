@@ -26,11 +26,22 @@ The sites section contains one entry per site. Keyword and URL are mandatory.
 The scraper will trigger when Keyword is found in the URL HTML code. The "Reverse search" variable is optional, and will reverse the search conditions, meaning that the scraper will trigger when the Keyword is NOT found in the URL HTML code.
 
 ## Run standalone
-1. `pip install fake_useragent python-pushover`
+1. `pip install fake_useragent requests`
 2. Edit your config.json. This may take some trial and error to get right.
 3. Either run the script from crontab, or use looper.sh to trigger the scraper at a reasonable interval.
-4. Wait
 
-## Run in Docker
+## Run with docker-compose
 1. Build the container: `docker build -t stock-scraper .`
-2. Run the container using docker up or docker-compose. I prefer the later: `docker-compose up`.
+2. Run the container using `docker-compose up`.
+
+## Run with plain Docker
+1. Build the container: `docker build -t stock-scraper .`
+2. Run the container using something like this... (UNVERIFIED):
+```
+docker run -d \
+    --name=stock-scraper \
+    --net=host \
+    --restart=always \
+    -v config.json:/config.json \
+    stock-scraper
+```
