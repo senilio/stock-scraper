@@ -1,13 +1,17 @@
-import requests
-import pushover
-import json
 import fake_useragent
+import requests
+import json
 
 def send_push(title, message, token, key):
-    pushover.init(token)
-    pushover.Client(key).send_message(
-            message,
-            title=title)
+    r = requests.post("https://api.pushover.net/1/messages.json", 
+            data = {
+                "token": token,
+                "user": key,
+                "title": title,
+                "message": message 
+                }
+            )
+    print("Notification sent: %s" % r.text)
 
 def generate_headers():
     return {
