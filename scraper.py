@@ -25,12 +25,16 @@ def generate_headers():
     }
 
 def checker(url, keyword):
-    r = requests.get(url, headers=generate_headers(), timeout=5)
-    if 'CAPTCHA' in r.text:
-        print("You may have hit the CAPTCHA on %s" % url)
-    if (reverse_search == True and not keyword in r.text) or (reverse_search == False and keyword in r.text):
-        print("There is a hit on " + url)
-        return ':)'
+    try:
+        r = requests.get(url, headers=generate_headers(), timeout=5)
+        if 'CAPTCHA' in r.text:
+            print("You may have hit the CAPTCHA on %s" % url)
+
+        if (reverse_search == True and not keyword in r.text) or (reverse_search == False and keyword in r.text):
+            print("There is a hit on %s" % url)
+            return ':)'
+    except: 
+        print("* FAILED scraping %s" % url)
 
 def main():
     # Global variables
