@@ -9,7 +9,7 @@ def send_push(title, message, token, key):
                 "user": key,
                 "title": title,
                 "message": message,
-                "sound": climb
+                "sound": "climb"
                 }
             )
     print("Notification sent: %s" % r.text)
